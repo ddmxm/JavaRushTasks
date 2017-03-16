@@ -30,7 +30,6 @@ public class Solution {
             }
         }
 
-        //String text;
         for (Map.Entry entry : readedBytes.entrySet()) {
             if (entry.getValue().equals(frequentByte)) {
                 System.out.print(entry.getKey() + " ");
