@@ -14,6 +14,7 @@ CRUD 2
 public class Solution {
     public static volatile List<Person> allPeople = new ArrayList<Person>();
     private static SimpleDateFormat format = new SimpleDateFormat("dd/M/yyyy");
+    private static SimpleDateFormat format2 = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
 
     static {
         allPeople.add(Person.createMale("Иванов Иван", new Date()));  //сегодня родился    id=0
@@ -53,25 +54,21 @@ public class Solution {
                         break;
                     }
                 }
-            case "-i":
+            case "-i": {
                 synchronized (allPeople) {
-                    int i = 1;
-                    do {
-                        StringBuilder s = new StringBuilder();
-                        Person p = allPeople.get(Integer.valueOf(args[i++]));
-                        s.append(p.getName()).append(" ");
-                        if (p.getSex() == Sex.MALE) {
-                            s.append("м").append(" ");
-                        } else {
-                            s.append("ж").append(" ");
-                        }
-                        s.append(format.format(p.getBirthDay()));
-                        System.out.println(s);
-                    } while (i < args.length);
-                    break;
+                    for (int i = 1; i < args.length; i++) {
+                        int id = Integer.parseInt(args[i]);
+                        String sex;
+                        if (allPeople.get(id).getSex().toString().equals("MALE")) sex = "м";
+                        else sex = "ж";
+                        System.out.println(allPeople.get(id).getName() + " " + sex + " " + format2.format(allPeople.get(id).getBirthDay()));
+                    }
+                }
+            }
+            break;
                 }
         }
-    }
+
 
     private synchronized static void createPerson(String[] args) throws ParseException {
         int i = 1;
