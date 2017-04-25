@@ -12,7 +12,6 @@ public class Solution {
              BufferedReader fileReader = new BufferedReader(new FileReader(bufferedReader.readLine()));
              BufferedWriter fileWriter = new BufferedWriter(new FileWriter(bufferedReader.readLine()));
         ) {
-            String word = "";
             while (fileReader.ready()) {
                 char c = (char) fileReader.read();
                 if (c == '.') {
