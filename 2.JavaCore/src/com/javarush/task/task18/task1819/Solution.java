@@ -12,7 +12,7 @@ public class Solution {
             String file1 = reader.readLine();
             String file2 = reader.readLine();
             try (FileReader file1Reader = new FileReader(file1);
-                 FileReader file2Reader = new FileReader(file2);
+                 FileReader file2Reader = new FileReader(file2)
             ) {
                 String resultFile = "";
                 while (file2Reader.ready()) {
