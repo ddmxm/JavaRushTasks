@@ -22,6 +22,12 @@ public class Hippodrome {
     }
 
     public void print() {
+        for (int i = 0; i < horses.size(); i++) {
+            horses.get(i).print();
+        }
+        for (int i = 0; i < 10; i++) {
+            System.out.println();
+        }
     }
 
     public void run() {
@@ -40,6 +46,7 @@ public class Hippodrome {
         game = new Hippodrome(new ArrayList<>());
         horses.add(new Horse("Leela", 3, 0));
         horses.add(new Horse("Amy", 3, 0));
-        horses.add(new Horse("Tress", 3, 0));
+        horses.add(new Horse("Mom", 3, 0));
+        game.run();
     }
 }
