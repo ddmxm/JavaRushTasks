@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Hippodrome {
     static Hippodrome game;
-    private static List<Horse> horses = null;
+    private static List<Horse> horses = new ArrayList<>();
 
     public List<Horse> getHorses() {
         return horses;
@@ -15,16 +15,22 @@ public class Hippodrome {
         this.horses = horses;
     }
 
-    public String move() {
-        return null;
+    public void move() {
     }
 
-    public String print() {
-        return null;
+    public void print() {
     }
 
-    public String run() {
-        return null;
+    public void run() {
+        try {
+            for (int i = 1; i <= 100; i++) {
+                move();
+                print();
+                Thread.sleep(200);
+            }
+        } catch (InterruptedException e) {
+            e.getMessage();
+        }
     }
 
     public static void main(String[] args) {
