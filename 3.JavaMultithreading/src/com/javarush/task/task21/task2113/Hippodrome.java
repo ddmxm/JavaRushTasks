@@ -42,11 +42,26 @@ public class Hippodrome {
         }
     }
 
+    public Horse getWinner() {
+        Horse winner = horses.get(0);
+        for (Horse horse : horses) {
+            if (horse.getDistance() > winner.getDistance())
+                winner = horse;
+        }
+        return winner;
+    }
+
+    public void printWinner() {
+        System.out.println("Winner is " + getWinner().getName() + "!");
+    }
+
+
     public static void main(String[] args) {
         game = new Hippodrome(new ArrayList<>());
         horses.add(new Horse("Leela", 3, 0));
         horses.add(new Horse("Amy", 3, 0));
         horses.add(new Horse("Mom", 3, 0));
         game.run();
+        game.printWinner();
     }
 }
